@@ -22,12 +22,13 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchAll = async () => {
       try {
-        const [tasksRes, assignedRes, bidsRes, recRes, walletRes] = await Promise.all([
-          api.get('/tasks/my?type=posted'),
-          api.get('/tasks/my?type=assigned'),
-          api.get('/bids/my'),
-          api.get('/recommendations'),
-          api.get('/wallet'),
+        const [tasksRes, assignedRes, bidsRes, recRes, walletRes] = 
+    await Promise.all([
+    api.get('/api/tasks/my?type=posted'),
+    api.get('/api/tasks/my?type=assigned'),
+    api.get('/api/bids/my'),
+    api.get('/api/recommendations'),
+    api.get('/api/wallet')  
         ]);
         setMyTasks(tasksRes.data.tasks);
         setAssignedTasks(assignedRes.data.tasks);

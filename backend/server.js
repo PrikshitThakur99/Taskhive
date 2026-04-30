@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors'); 
 const http = require('http');
 const { Server } = require('socket.io');
 const mongoose = require('mongoose');
@@ -21,6 +22,10 @@ const errorHandler = require('./middleware/errorHandler');
 const { setupSocketIO } = require('./utils/socket');
 
 const app = express();
+app.use(cors({
+  origin: 'https://vercel.app',
+  credentials: true
+}));
 const server = http.createServer(app);
 
 // Socket.IO setup
@@ -81,3 +86,5 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/taskhive')
   });
 
 module.exports = { app, server };
+
+

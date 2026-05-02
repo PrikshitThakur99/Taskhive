@@ -22,7 +22,7 @@ const { setupSocketIO } = require('./utils/socket');
 
 const app = express();
 app.use(cors({
-  origin: "https://taskhive-roan.vercel.app/register", // Match your browser URL exactly
+  origin: "https://taskhive-roan.vercel.app", // Match your browser URL exactly
   credentials: true
 }));
 const server = http.createServer(app);
